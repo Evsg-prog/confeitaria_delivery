@@ -1,0 +1,17 @@
+{
+  "name": "confeitaria-delivery",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Plataforma de pedidos para confeitaria delivery",
+  "main": "backend/server.js",
+  "scripts": {
+    "start": "node backend/server.js",
+    "dev": "node --watch backend/server.js"
+  },
+  "engines": {
+    "node": ">=22.5.0"
+  },
+  "dependencies": {
+    "express": "^5.3.0"
+  }
+}
