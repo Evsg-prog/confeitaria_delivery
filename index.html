@@ -4,58 +4,115 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="theme-color" content="#fffaf6">
-  <meta name="description" content="Doces e confeitos artesanais preparados com carinho. Conheça nosso cardápio.">
+  <meta name="description" content="Doces e confeitos artesanais preparados com carinho.">
+  <meta property="og:title" content="Doce Ateliê | Confeitaria artesanal">
+  <meta property="og:description" content="Doces e confeitos artesanais preparados com carinho.">
+  <meta property="og:type" content="website">
   <title>Doce Ateliê | Confeitaria artesanal</title>
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="./frontend/css/reset.css">
-  <link rel="stylesheet" href="./frontend/css/layout.css">
-  <link rel="stylesheet" href="./frontend/css/components.css">
-  <link rel="stylesheet" href="./frontend/css/pages.css">
-  <script src="./frontend/js/api.js" defer></script>
-  <script src="./frontend/js/cart.js" defer></script>
-  <script src="./frontend/js/layout.js" defer></script>
-  <script src="./frontend/js/components/product-card.js" defer></script>
-  <script src="./frontend/js/pages/home.js" defer></script>
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
-  <div id="app"></div>
-  <template id="page-content">
-    <main>
-      <section class="hero">
-        <div class="hero__content">
+  <a href="#main" class="skip-link">Pular para o conteúdo</a>
+
+  <header>
+    <div class="container navbar">
+      <a class="brand" href="#" data-page="home">Doce <span>Ateliê.</span></a>
+
+      <nav aria-label="Navegação principal">
+        <button class="active" data-page="home">Início</button>
+        <button data-page="catalog">Cardápio</button>
+        <button class="cart-nav" data-page="cart">
+          Carrinho (<span id="cart-count" aria-live="polite">0</span>)
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main" class="container">
+    <section id="page-home" class="page active">
+      <div class="hero">
+        <div>
           <span class="eyebrow">FEITO À MÃO, COM AFETO</span>
           <h1>Um doce momento<br><em>muda o seu dia.</em></h1>
           <p>Confeitaria artesanal para deixar os momentos simples ainda mais especiais.</p>
-          <a class="button button--primary" href="./frontend/cardapio.html">Explorar cardápio <span aria-hidden="true">→</span></a>
-          <div class="hero__note"><span class="hero__note-icon">✳</span> Produção artesanal em pequenos lotes</div>
+          <button class="button" data-page="catalog">Explorar cardápio →</button>
+          <p class="hero-note">✳ Produção artesanal em pequenos lotes</p>
         </div>
-        <div class="hero__art" aria-label="Ilustração decorativa de um bolo">
-          <div class="hero__circle"></div>
-          <div class="hero__cake"><span>✿</span><i></i><b></b></div>
-          <span class="hero__spark hero__spark--one">✳</span>
-          <span class="hero__spark hero__spark--two">✦</span>
-          <span class="hero__caption">feito com carinho</span>
-        </div>
-      </section>
+        <div class="hero-art" role="img" aria-label="Bolo decorativo">🎂</div>
+      </div>
 
-      <section class="section-block">
+      <section class="section">
         <div class="section-heading">
-          <div><span class="eyebrow">ESCOLHAS DA CASA</span><h2>Queridinhos da confeitaria</h2></div>
-          <a class="text-link" href="./frontend/cardapio.html">Ver cardápio completo <span aria-hidden="true">→</span></a>
+          <div>
+            <span class="eyebrow">ESCOLHAS DA CASA</span>
+            <h2>Queridinhos da confeitaria</h2>
+          </div>
+          <button class="text-button" data-page="catalog">Ver cardápio completo →</button>
         </div>
-        <div id="featured-products" class="product-grid" aria-live="polite">
-          <p class="loading-message">Carregando nossos produtos...</p>
+        <div id="featured-products" class="product-grid">
+          <p class="notice">Carregando produtos...</p>
         </div>
       </section>
+    </section>
 
-      <section class="callout">
-        <span class="callout__icon">♡</span>
-        <div><span class="eyebrow">SEU MOMENTO, DO SEU JEITO</span><h2>Escolha, peça e aproveite.</h2><p>Faça seu pedido para receber em casa ou retirar com a gente.</p></div>
-        <a class="button button--light" href="./frontend/cardapio.html">Fazer pedido <span aria-hidden="true">→</span></a>
-      </section>
-    </main>
-  </template>
+    <section id="page-catalog" class="page">
+      <div class="page-intro">
+        <span class="eyebrow">COM UM TOQUE DE DOÇURA</span>
+        <h1>Nosso cardápio</h1>
+        <p>Escolha seus favoritos. Tudo preparado artesanalmente para você.</p>
+      </div>
+
+      <div class="catalog-controls">
+        <div id="category-filters" class="filters" role="tablist" aria-label="Filtrar por categoria">
+          <button class="filter active" data-category="" type="button">Todos</button>
+        </div>
+        <input
+          id="product-search"
+          class="search"
+          type="search"
+          placeholder="Buscar no cardápio..."
+          aria-label="Buscar no cardápio">
+      </div>
+
+      <div class="section-heading">
+        <h2 id="catalog-title">Todos os produtos</h2>
+        <span id="product-count" class="muted-label" aria-live="polite"></span>
+      </div>
+
+      <div id="catalog-products" class="product-grid">
+        <p class="notice">Carregando produtos...</p>
+      </div>
+    </section>
+
+    <section id="page-cart" class="page">
+      <div class="page-intro">
+        <span class="eyebrow">QUASE LÁ</span>
+        <h1>Seu carrinho</h1>
+        <p>Confira seus itens antes de continuar.</p>
+      </div>
+      <div id="cart-content"></div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      Doce Ateliê · Confeitaria artesanal
+    </div>
+  </footer>
+
+  <div id="toast-root" class="toast-root" role="status" aria-live="polite"></div>
+
+  <noscript>
+    <div class="noscript">Este site precisa de JavaScript ativado para funcionar.</div>
+  </noscript>
+
+  <script src="app.js" defer></script>
 </body>
 </html>

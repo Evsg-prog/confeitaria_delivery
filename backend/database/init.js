@@ -1,3 +1,5 @@
+//backend/database/init.js
+
 const fs = require('node:fs');
 const path = require('node:path');
 const database = require('./connection');

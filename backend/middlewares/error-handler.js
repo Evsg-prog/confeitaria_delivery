@@ -1,3 +1,5 @@
+//backend/middlewares/error-handler.js
+
 function notFound(_request, response) {
   response.status(404).json({ error: 'Rota não encontrada.' });
 }

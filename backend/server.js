@@ -1,3 +1,5 @@
+//backend/server.js
+
 const path = require('node:path');
 const express = require('express');
 require('./database/init');

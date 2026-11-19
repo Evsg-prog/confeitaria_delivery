@@ -1,3 +1,5 @@
+//backend/repositories/catalog.repository.js
+
 const database = require('../database/connection');
 
 function listCategories() {

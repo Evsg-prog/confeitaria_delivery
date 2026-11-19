@@ -1,3 +1,5 @@
+//backend/controllers/catalog.controller.js
+
 const service = require('../services/catalog.service');
 
 function listCategories(_request, response) {

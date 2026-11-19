@@ -1,3 +1,5 @@
+//backend/routes/catalog.routes.js
+
 const { Router } = require('express');
 const controller = require('../controllers/catalog.controller');
 

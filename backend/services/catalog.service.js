@@ -1,3 +1,5 @@
+//backend/services/catalog.service.js
+
 const repository = require('../repositories/catalog.repository');
 
 function getCategories() {
